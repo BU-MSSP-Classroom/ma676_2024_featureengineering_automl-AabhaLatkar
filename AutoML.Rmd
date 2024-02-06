@@ -328,8 +328,16 @@ You will use the framework of tidymodel workflow, which will run these transform
 
 Since you've worked on it in MA679 please copy and paste your best model here.  
 ```{r,echo=TRUE}
-##
-##
+ames_raw_2008=ames_raw[ames_raw$`Yr Sold`<2008,]
+ames_raw_2009=ames_raw[ames_raw$`Yr Sold`>=2008,]
+lmfit_2008<- lm(data=ames_raw_2008, ames_raw_2008$SalePrice ~ ames_raw_2008$`Gr Liv Area`+ ames_raw_2008$`1st Flr SF`+ ames_raw_2008$`Full Bath`)
+summary(lmfit_2008)
+
+#feature engineering- maybe create a column called bathrooms- divide the column half bath by 2 and add to the full bath column. 
+
+#create a variable called number of floors- if 2nd FLR is not 0 then 1st and 2nd floor exists so the variable will be 2. 
+
+Goodharts law: when a measure becomes a target its bad
 ```
 
 Your answer:
@@ -343,8 +351,7 @@ Please write your answer in full sentences.
 Please perform feature engineering on the Ames housing data that you think will help with the prediction.
 
 ```{r,echo=TRUE}
-##
-##
+
 ```
 
 Your answer:
