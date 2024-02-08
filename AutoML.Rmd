@@ -334,10 +334,11 @@ lmfit_2008<- lm(data=ames_raw_2008, ames_raw_2008$SalePrice ~ ames_raw_2008$`Gr 
 summary(lmfit_2008)
 
 #feature engineering- maybe create a column called bathrooms- divide the column half bath by 2 and add to the full bath column. 
+ames_raw$bathrooms <- ames_raw$`Full Bath` + ames_raw$`Half Bath` / 2
 
 #create a variable called number of floors- if 2nd FLR is not 0 then 1st and 2nd floor exists so the variable will be 2. 
+ames_raw$number_of_floors <- ifelse(ames_raw$`2nd Flr SF` != 0, 2, 1)
 
-Goodharts law: when a measure becomes a target its bad
 ```
 
 Your answer:
@@ -351,7 +352,7 @@ Please write your answer in full sentences.
 Please perform feature engineering on the Ames housing data that you think will help with the prediction.
 
 ```{r,echo=TRUE}
-
+ames_raw$bathrooms <- data$full_bath + data$half_bath / 2
 ```
 
 Your answer:
